@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
     PING="$(echo $PING | awk '{print $(NF-1)}' | cut -d '/' -f 1,2,3)"
 else
     # If the host is not avaliable we just have -1
-    PING="-1"
+    PING="-1/-1/-1"
 fi
 
 # Output to file

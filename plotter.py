@@ -2,8 +2,7 @@
 import sys
 from os import listdir
 from os.path import isfile, join
-import matplotlib.pyplot as plt
-
+import matplotlib.pyplot as plt 
 
 def get_filepaths():
     if len(sys.argv) is 1:
@@ -49,16 +48,16 @@ def draw(values):
 
     # Since pyplot is cumbersome, we have to make the datetimes into ticks.
     x = [i for i in range(0, len(datetimes))]
-    plt.xticks([i for i in x[::60]], [i for i in datetimes[::60]], rotation=90) # Only show tick every hour
+    plt.xticks([i for i in x[::(60*6)]], [i for i in datetimes[::(60*6)]], rotation=90) # Only show tick every 6 hours
 
-    # Set up the legend
-    plt.legend(["Minimum", "Maximum", "Average"])
-    
     # Labeling of the axies
     plt.ylabel("Time in ms")
 
     for times in (min_time, max_time, average_time):
         plt.plot(x, times)
+
+    # Set up the legend
+    plt.legend(["Minimum", "Maximum", "Average"])
 
 
 if __name__ == "__main__":
