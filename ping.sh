@@ -1,8 +1,8 @@
 #!/bin/bash
-TARGET=$1 # Google DNS
+TARGET=$1 # Target IP address
 COUNT=3 # Amount of pings
 TIMEOUT=1 # Timeout in seconds
-LOCATION="/home/admin/logs/$2" # Output location
+LOCATION="/home/admin/logs/ping/$2" # Output location
 
 DATE="$(date +'%Y-%m-%d %H:%M')"
 PING="$(ping -c $COUNT -W $TIMEOUT $TARGET)"
